@@ -1,0 +1,24 @@
+<%= form_for(@porcelain) do |f| %>
+  <% if @porcelain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@porcelain.errors.count, "error") %> prohibited this porcelain from being saved:</h2>
+
+      <ul>
+      <% @porcelain.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
